@@ -44,7 +44,6 @@ keys = [
     Key([mod, "shift"], "Return", lazy.spawn(rofi_launcher), desc="Run Launcher"),
     Key([mod], "b", lazy.spawn(myBrowser), desc="Web Browser"),
     Key([mod], "e", lazy.spawn("thunar"), desc="File Manager"),
-    Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "q", lazy.spawn(rofi_powermenu), desc="Logout menu"),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Logout menu"),
