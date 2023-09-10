@@ -1,34 +1,10 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# Fassih config
 
 import colors
 import os
 import subprocess
 from libqtile import bar, extension, hook, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, ScratchPad, DropDown, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 
 # Make sure 'qtile-extras' is installed or this config will not work.
@@ -65,61 +41,60 @@ keys = [
     Key([mod, "shift"], "Return", lazy.spawn(rofi_launcher), desc="Run Launcher"),
     Key([mod], "b", lazy.spawn(myBrowser), desc="Web Browser"),
     Key([mod], "e", lazy.spawn("thunar"), desc="File Manager"),
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "q", lazy.spawn(rofi_powermenu), desc="Logout menu"),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Logout menu"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "v", lazy.spawn("copyq menu"), desc="Spawns Clipboard Manager"),
     Key([mod], "c", lazy.spawn(vsCode), desc="Spawns VsCode"),
     Key([mod], "o", lazy.spawn(Obsidian), desc="Spawns Obsidian"),
 
     # Switch between windows
-    # Some layouts like 'monadtall' only need to use j/k to move
-    # through the stack, but other layouts like 'columns' will
-    # require all four directions h/j/k/l to move around.
+    Key([mod], "f", lazy.window.toggle_fullscreen()),
+    Key([mod], "q", lazy.window.kill()),
+    Key([mod, "control"], "Right",
+        lazy.layout.grow_right(),
+        lazy.layout.grow(), lazy.layout.increase_ratio(),
+        lazy.layout.delete()
+        ),
+    Key([mod, "control"], "Left",
+        lazy.layout.grow_left(),
+        lazy.layout.shrink(),
+        lazy.layout.decrease_ratio(),
+        lazy.layout.add()
+        ),
+    Key([mod, "control"], "Up",
+        lazy.layout.grow_up(),
+        lazy.layout.grow(),
+        lazy.layout.decrease_nmaster()
+        ),
+    Key([mod, "control"], "Down",
+        lazy.layout.grow_down(),
+        lazy.layout.shrink(),
+        lazy.layout.increase_nmaster()
+        ),
 
-    Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "Down", lazy.layout.down(), desc="Move focus to down"),
-    Key([mod], "Up", lazy.layout.up(), desc="Move focus to Up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move focus to Other Window"),
-    
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
-        Key([mod, "shift"], "Left",
-        lazy.layout.shuffle_left(),
-        lazy.layout.move_left().when(layout=["treetab"]),
-        desc="Move window to the left/move tab left in treetab"),
+# Window Focus (Arrows and Vim keys)
+    Key([mod], "Up", lazy.layout.up()),
+    Key([mod], "Down", lazy.layout.down()),
+    Key([mod], "Left", lazy.layout.left()),
+    Key([mod], "Right", lazy.layout.right()),
 
-    Key([mod, "shift"], "Right",
-        lazy.layout.shuffle_right(),
-        lazy.layout.move_right().when(layout=["treetab"]),
-        desc="Move window to the right/move tab right in treetab"),
+# Qtile Layout Actions
+    Key([mod], "r", lazy.layout.reset()),
+    Key([mod], "Tab", lazy.next_layout()),
+    Key([mod, "shift"], "f", lazy.layout.flip()),
+    Key([mod, "shift"], "space", lazy.window.toggle_floating()),
 
-    Key([mod, "shift"], "Down",
-        lazy.layout.shuffle_down(),
-        lazy.layout.section_down().when(layout=["treetab"]),
-        desc="Move window down/move down a section in treetab"
-    ),
-    Key([mod, "shift"], "Up",
-        lazy.layout.shuffle_up(),
-        lazy.layout.section_up().when(layout=["treetab"]),
-        desc="Move window downup/move up a section in treetab"
-    ),
-
-    # Grow windows up, down, left, right.  Only works in certain layouts.
-    # Works in 'bsp' and 'columns' layout.
-    Key([mod, "control"], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([mod], "m", lazy.layout.maximize(), desc='Toggle between min and max sizes'),
-    Key([mod], "t", lazy.window.toggle_floating(), desc='toggle floating'),
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc='toggle fullscreen'),
-
+# Move windows around MonadTall/MonadWide Layouts
+    Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
+    Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "Left", lazy.layout.swap_left()),
+    Key([mod, "shift"], "Right", lazy.layout.swap_right()),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "h", lazy.layout.swap_left()),
+    Key([mod, "shift"], "l", lazy.layout.swap_right()),
 ]
 
 groups = []
@@ -176,6 +151,23 @@ for i in groups:
 # colors = colors.TomorrowNight
 
 colors = colors.Nord
+
+# Define scratchpads
+groups.append(ScratchPad("scratchpad", [
+    DropDown("term", "alacritty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("term2", "alacritty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("ranger", "alacritty --class=ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
+    DropDown("volume", "alacritty --class=volume -e pulsemixer", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
+
+]))
+
+# Scratchpad keybindings
+keys.extend([
+    Key([mod], "n", lazy.group['scratchpad'].dropdown_toggle('term')),
+    Key([mod], "c", lazy.group['scratchpad'].dropdown_toggle('ranger')),
+    Key([mod, "shift"], "v", lazy.group['scratchpad'].dropdown_toggle('volume')),
+    Key([mod, "shift"], "n", lazy.group['scratchpad'].dropdown_toggle('term2')),
+])
 
 ### LAYOUTS ###
 # Some settings that I use on almost every layout, which saves us
