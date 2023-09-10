@@ -21,9 +21,9 @@ def add_treetab_section(layout):
 
 mod = "mod4"
 myTerm = "alacritty"
-myBrowser = "flatpak run org.mozilla.firefox"
-Obsidian = "flatpak run md.obsidian.Obsidian"
-vsCode = "flatpak run com.visualstudio.code"
+myBrowser = "firefox"
+Obsidian = "Obsidian"
+vsCode = "code"
 
 # Rofi Scripts
 rofi_launcher = "sh /home/fassih/.config/rofi/launchers/type-1/./launcher.sh"
