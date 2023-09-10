@@ -91,10 +91,7 @@ keys = [
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "Left", lazy.layout.swap_left()),
     Key([mod, "shift"], "Right", lazy.layout.swap_right()),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
-    Key([mod, "shift"], "h", lazy.layout.swap_left()),
-    Key([mod, "shift"], "l", lazy.layout.swap_right()),
+
 ]
 
 groups = []
@@ -164,7 +161,7 @@ groups.append(ScratchPad("scratchpad", [
 # Scratchpad keybindings
 keys.extend([
     Key([mod], "n", lazy.group['scratchpad'].dropdown_toggle('term')),
-    Key([mod], "c", lazy.group['scratchpad'].dropdown_toggle('ranger')),
+    Key([mod, "shift"], "c", lazy.group['scratchpad'].dropdown_toggle('ranger')),
     Key([mod, "shift"], "v", lazy.group['scratchpad'].dropdown_toggle('volume')),
     Key([mod, "shift"], "n", lazy.group['scratchpad'].dropdown_toggle('term2')),
 ])
