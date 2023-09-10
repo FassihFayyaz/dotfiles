@@ -33,6 +33,9 @@ applet_screenshot = "/home/fassih/.config/rofi/applets/bin/./screenshot.sh"
 applet_appasroot = "/home/fassih/.config/rofi/applets/bin/./appasroot.sh"
 applet_apps = "/home/fassih/.config/rofi/applets/bin/./apps.sh"
 
+# Todoist QuickAdd
+todo = "python3 /home/fassih/.local/bin/todoist"
+
 keys = [
 
     # The Basics but important
@@ -48,6 +51,7 @@ keys = [
     Key([mod], "v", lazy.spawn("copyq menu"), desc="Spawns Clipboard Manager"),
     Key([mod], "c", lazy.spawn(vsCode), desc="Spawns VsCode"),
     Key([mod], "o", lazy.spawn(Obsidian), desc="Spawns Obsidian"),
+    Key([mod], "Space", lazy.spawn(todo), desc="Todoist QuickAdd"),
 
     # Switch between windows
     Key([mod], "f", lazy.window.toggle_fullscreen()),
