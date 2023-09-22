@@ -22,7 +22,7 @@ def add_treetab_section(layout):
 mod = "mod4"
 myTerm = "alacritty"
 myBrowser = "firefox"
-Obsidian = "Obsidian"
+Obsidian = "obsidian"
 vsCode = "code"
 
 # Rofi Scripts
@@ -41,16 +41,21 @@ keys = [
     # The Basics but important
 
     Key([mod], "Return", lazy.spawn(myTerm), desc="Terminal"),
-    Key([mod, "shift"], "Return", lazy.spawn(rofi_launcher), desc="Run Launcher"),
     Key([mod], "b", lazy.spawn(myBrowser), desc="Web Browser"),
     Key([mod], "e", lazy.spawn("thunar"), desc="File Manager"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "shift"], "q", lazy.spawn(rofi_powermenu), desc="Logout menu"),
-    Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Logout menu"),
+    Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Take Screenshot"),
     Key([mod], "v", lazy.spawn("copyq menu"), desc="Spawns Clipboard Manager"),
     Key([mod], "c", lazy.spawn(vsCode), desc="Spawns VsCode"),
     Key([mod], "o", lazy.spawn(Obsidian), desc="Spawns Obsidian"),
     Key([mod], "Space", lazy.spawn(todo), desc="Todoist QuickAdd"),
+
+    # Rofi Keys/Shortcuts
+
+    Key([mod, "shift"], "q", lazy.spawn(rofi_powermenu), desc="Logout menu"),
+    Key([mod, "shift"], "Return", lazy.spawn(rofi_launcher), desc="Run Launcher"),
+    Key([mod, "shift"], "e", lazy.spawn("rofi -show emoji"), desc="Rofi Emoji"),
+    Key([mod, "control"], "c", lazy.spawn("rofi -show calc"), desc="Rofi Calc"),
 
     # Switch between windows
     Key([mod], "f", lazy.window.toggle_fullscreen()),
@@ -158,11 +163,12 @@ groups.append(ScratchPad("scratchpad", [
     DropDown("term2", "alacritty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
     DropDown("ranger", "alacritty --class=ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
     DropDown("volume", "alacritty --class=volume -e pulsemixer", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
-
+    DropDown("chatgpt", "chromium --app=https://chat.openai.com", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False),
 ]))
 
 # Scratchpad keybindings
 keys.extend([
+    Key([mod], 'F10', lazy.group["scratchpad"].dropdown_toggle("chatgpt")),
     Key([mod], "n", lazy.group['scratchpad'].dropdown_toggle('term')),
     Key([mod, "shift"], "c", lazy.group['scratchpad'].dropdown_toggle('ranger')),
     Key([mod, "shift"], "v", lazy.group['scratchpad'].dropdown_toggle('volume')),

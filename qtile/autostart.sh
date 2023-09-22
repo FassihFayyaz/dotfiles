@@ -11,10 +11,12 @@ fi
 
 /home/fassih/.local/bin/rnnoise activate
 flameshot &
+redshift &
 picom &
 copyq &
 dunst &
 psensor &
+espanso &
 nitrogen --restore &
 flatpak run org.qbittorrent.qBittorrent &
 flatpak run com.discordapp.Discord &
