@@ -10,13 +10,13 @@ else echo "Could not set a resolution."
 fi
 
 /home/fassih/.local/bin/rnnoise activate
+alarm-clock-applet &
 flameshot &
 redshift &
 picom &
 copyq &
 dunst &
 psensor &
-espanso &
 nitrogen --restore &
 flatpak run org.qbittorrent.qBittorrent &
 flatpak run com.discordapp.Discord &

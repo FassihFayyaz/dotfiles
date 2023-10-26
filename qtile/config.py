@@ -21,8 +21,9 @@ def add_treetab_section(layout):
 
 mod = "mod4"
 myTerm = "alacritty"
-myBrowser = "firefox"
+myBrowser = "thorium-browser"
 Obsidian = "obsidian"
+Logseq = "logseq"
 vsCode = "code"
 
 # Rofi Scripts
@@ -48,6 +49,7 @@ keys = [
     Key([mod], "v", lazy.spawn("copyq menu"), desc="Spawns Clipboard Manager"),
     Key([mod], "c", lazy.spawn(vsCode), desc="Spawns VsCode"),
     Key([mod], "o", lazy.spawn(Obsidian), desc="Spawns Obsidian"),
+    Key([mod], "l", lazy.spawn(Logseq), desc="Spawns Logseq"),
     Key([mod], "Space", lazy.spawn(todo), desc="Todoist QuickAdd"),
 
     # Rofi Keys/Shortcuts
@@ -159,16 +161,18 @@ colors = colors.Nord
 
 # Define scratchpads
 groups.append(ScratchPad("scratchpad", [
-    DropDown("term", "alacritty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("term", "alacritty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
     DropDown("term2", "alacritty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
     DropDown("ranger", "alacritty --class=ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
     DropDown("volume", "alacritty --class=volume -e pulsemixer", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
-    DropDown("chatgpt", "chromium --app=https://chat.openai.com", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False),
+    DropDown("chatgpt", "thorium-browser --app=https://chat.openai.com", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
+    DropDown("todoist", "thorium-browser --app=https://todoist.com/", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
 ]))
 
 # Scratchpad keybindings
 keys.extend([
     Key([mod], 'F10', lazy.group["scratchpad"].dropdown_toggle("chatgpt")),
+    Key([mod, "shift"], "t", lazy.group["scratchpad"].dropdown_toggle("todoist")),
     Key([mod], "n", lazy.group['scratchpad'].dropdown_toggle('term')),
     Key([mod, "shift"], "c", lazy.group['scratchpad'].dropdown_toggle('ranger')),
     Key([mod, "shift"], "v", lazy.group['scratchpad'].dropdown_toggle('volume')),
