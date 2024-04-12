@@ -1,30 +1,63 @@
-#
+#    _               _              
+#   | |__   __ _ ___| |__  _ __ ___ 
+#   | '_ \ / _` / __| '_ \| '__/ __|
+#  _| |_) | (_| \__ \ | | | | | (__ 
+# (_)_.__/ \__,_|___/_| |_|_|  \___|
+# 
+# by FassihFayyaz
+# -----------------------------------------------------
 # ~/.bashrc
-#
+# -----------------------------------------------------
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-# Zoxide changing cd as zoxide
-eval "$(zoxide init --cmd cd bash)"
+# -----------------------------------------------------
+# FastFetch
+# -----------------------------------------------------
 
-# 4. More ls aliases
-alias ll='ls -l'
-alias la='ls -Al'
-alias lt='ls -ltrh'
+fastfetch
 
-# 7. More aliases
+# -----------------------------------------------------
+# Aliases
+# -----------------------------------------------------
+
 alias bashrc="micro ~/.bashrc"
 alias update="paru -Syu"
 alias count="ls * | wc -l"
 alias sumi="sudo micro"
 alias c='clear'
+alias ff='fastfetch'
+alias shutdown='systemctl poweroff'
+alias matrix='cmatrix'
 
-# 9. Sudo last command
+# -----------------------------------------------------
+# More ls aliases
+# -----------------------------------------------------
+
+alias ll='ls -l'
+alias la='ls -Al'
+alias lt='ls -ltrh'
+
+# -----------------------------------------------------
+# GIT
+# -----------------------------------------------------
+
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="git push"
+alias gpl="git pull"
+alias gst="git stash"
+alias gsp="git stash; git pull"
+alias gcheck="git checkout"
+alias gcredential="git config credential.helper store"
+
+# -----------------------------------------------------
+# Sudo last command
+# -----------------------------------------------------
+
 s() { # do sudo, or sudo the last command if no argument given
     if [[ $# == 0 ]]; then
         sudo $(history -p '!!')
@@ -33,7 +66,28 @@ s() { # do sudo, or sudo the last command if no argument given
     fi
 }
 
-# 10. Easy extract
+# -----------------------------------------------------
+# Zoxide - Replacing cd
+# -----------------------------------------------------
+
+eval "$(zoxide init --cmd cd bash)"
+
+# -----------------------------------------------------
+# START STARSHIP
+# -----------------------------------------------------
+
+eval "$(starship init bash)"
+
+# -----------------------------------------------------
+# PYWAL
+# -----------------------------------------------------
+
+cat ~/.cache/wal/sequences
+
+# -----------------------------------------------------
+# Easy extract
+# -----------------------------------------------------
+
 function extract {
  if [ $# -eq 0 ]; then
     # display usage if no parameters given
