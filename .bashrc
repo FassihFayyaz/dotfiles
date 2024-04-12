@@ -17,6 +17,22 @@ alias ll='ls -l'
 alias la='ls -Al'
 alias lt='ls -ltrh'
 
+# 7. More aliases
+alias bashrc="micro ~/.bashrc"
+alias update="paru -Syu"
+alias count="ls * | wc -l"
+alias sumi="sudo micro"
+alias c='clear'
+
+# 9. Sudo last command
+s() { # do sudo, or sudo the last command if no argument given
+    if [[ $# == 0 ]]; then
+        sudo $(history -p '!!')
+    else
+        sudo "$@"
+    fi
+}
+
 # 10. Easy extract
 function extract {
  if [ $# -eq 0 ]; then
