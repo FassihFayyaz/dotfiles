@@ -78,7 +78,7 @@ echo "* { current-image: url(\"$blurred\", height); }" > "$rasi_file"
 sleep 1
 
 # Copy blurred wallpaper to /usr/share/sddm/themes/chili/
-cp "$blurred" "/usr/share/sddm/themes/chili/assets/background.png"
+cp "$current_wallpaper" "/usr/share/sddm/themes/chili/assets/background.png"
 
 pywalfox update
 
