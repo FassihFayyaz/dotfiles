@@ -21,6 +21,10 @@ nitrogen --restore &
 # Load picom
 picom &
 
+# Start Blue light Filter
+#redshift -l 55.7:12.6 -t 6000:3500 -g 0.8 -m randr -v
+redshift -l 55.7:12.6
+
 # Load power manager
 #xfce4-power-manager &
 
