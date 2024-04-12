@@ -69,8 +69,7 @@ s() { # do sudo, or sudo the last command if no argument given
 # -----------------------------------------------------
 # Added conda to path
 # -----------------------------------------------------
-
-echo "[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh" >> ~/.bashrc
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 # -----------------------------------------------------
 # Zoxide - Replacing cd
@@ -93,7 +92,6 @@ cat ~/.cache/wal/sequences
 # -----------------------------------------------------
 # Easy extract
 # -----------------------------------------------------
-
 function extract {
  if [ $# -eq 0 ]; then
     # display usage if no parameters given
@@ -137,3 +135,4 @@ function extract {
                       ;;
         esac
     done
+}
