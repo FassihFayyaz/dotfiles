@@ -5,8 +5,6 @@
 #  \__\_\|_| |___|_____|_____|  \____\___/|_| |_|_| |_|\__, |
 #                                                      |___/ 
 
-# Icons: https://fontawesome.com/search?o=r&m=free
-
 import os
 import re
 import socket
@@ -65,7 +63,11 @@ platform = int(os.popen("cat /sys/class/dmi/id/chassis_type").read())
 # --------------------------------------------------------
 
 terminal = "alacritty"
-browser = "firefox"      
+browser = "firefox"
+screenshot = "flameshot gui" 
+paste_selection_menu = "copyq menu" 
+file_manager = "thunar"
+code_editor = "code"    
 
 # --------------------------------------------------------
 # Keybindings
@@ -92,7 +94,7 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.swap_left()),
     Key([mod, "shift"], "l", lazy.layout.swap_right()),
 
-    Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
+    Key([mod, "shift"], "s", lazy.spawn(screenshot), desc="Take Screenshot"),
     # Size
     Key([mod, "shift"], "Left", lazy.layout.shrink(), desc="Grow window to the left"),
     Key([mod, "shift"], "Right", lazy.layout.grow(), desc="Grow window to the right"),
@@ -109,7 +111,6 @@ keys = [
 
     # Rofi Keys/Shortcuts
 
-    #Key([mod, "shift"], "q", lazy.spawn(rofi_powermenu), desc="Logout menu"),
     Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Run Launcher"),
     Key([mod, "shift"], "e", lazy.spawn("rofi -show emoji"), desc="Rofi Emoji"),
     Key([mod, "control"], "c", lazy.spawn("rofi -show calc"), desc="Rofi Calc"),
@@ -120,17 +121,17 @@ keys = [
     #System
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.spawn(home + "/dotfiles/qtile/scripts/powermenu.sh"), desc="Open Powermenu"),
 
     # Apps
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "e", lazy.spawn("thunar"), desc="Launch Thunar"),
+    Key([mod], "e", lazy.spawn(file_manager), desc="Launch File Manager"),
     Key([mod], "o", lazy.spawn("obsidian"), desc="Launch Obsidian"),
-    Key([mod], "c", lazy.spawn("code"), desc="Spawns VsCode"),
-    Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
+    Key([mod], "c", lazy.spawn(code_editor), desc="Launch Code Editor"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Browser"),
+
+    # Misc
     Key([mod, "shift"], "w", lazy.spawn("/home/fassih/.config/qtile/scripts/wal.sh"), desc="Update Wallpaper"),
-    Key([mod], "v", lazy.spawn("copyq menu"), desc="Spawns Clipboard Manager"),
+    Key([mod], "v", lazy.spawn(paste_selection_menu), desc="Spawns Clipboard Manager"),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl -q s +20%")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl -q s 20%-"))        
 ]
@@ -157,15 +158,13 @@ groups.append(ScratchPad("6", [
     DropDown("chatgpt", "chromium --app=https://chat.openai.com", x=0.1, y=0.1, width=0.80, height=0.8),
     DropDown("mousepad", "mousepad", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),
     DropDown("terminal", "alacritty", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),
-    DropDown("scrcpy", "scrcpy -d", x=0.8, y=0.05, width=0.15, height=0.6, on_focus_lost_hide=False ),
     DropDown("todoist", "chromium --app=https://todoist.com/", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
 ]))
 
 keys.extend([
-    Key([mod], 'F10', lazy.group["6"].dropdown_toggle("chatgpt")),
-    Key([mod], 'F11', lazy.group["6"].dropdown_toggle("mousepad")),
-    Key([mod], 'F12', lazy.group["6"].dropdown_toggle("terminal")),
-    Key([mod], 'F9', lazy.group["6"].dropdown_toggle("scrcpy")),
+    Key([mod], 'F9', lazy.group["6"].dropdown_toggle("chatgpt")),
+    Key([mod], 'F10', lazy.group["6"].dropdown_toggle("mousepad")),
+    Key([mod], 'F11', lazy.group["6"].dropdown_toggle("terminal")),
     Key([mod, "shift"], "t", lazy.group["6"].dropdown_toggle("todoist"))
 ])
 
@@ -221,38 +220,11 @@ layouts = [
 # --------------------------------------------------------
 
 widget_defaults = dict(
-    font="JetBrainsMono Nerd Font",
-    fontsize=14,
-    padding=3
+    font="JetBrainsMono Nerd Font Bold",
+    fontsize=12,
+    padding=3,
 )
 extension_defaults = widget_defaults.copy()
-
-# --------------------------------------------------------
-# Decorations
-# https://qtile-extras.readthedocs.io/en/stable/manual/how_to/decorations.html
-# --------------------------------------------------------
-
-# decor_left = {
-#     "decorations": [
-#         PowerLineDecoration(
-#             path="arrow_left"
-#             # path="rounded_left"
-#             # path="forward_slash"
-#             # path="back_slash"
-#         )
-#     ],
-# }
-
-# decor_right = {
-#     "decorations": [
-#         PowerLineDecoration(
-#             path="arrow_right"
-#             # path="rounded_right"
-#             # path="forward_slash"
-#             # path="back_slash"
-#         )
-#     ],
-# }
 
 # --------------------------------------------------------
 # Widgets
@@ -276,8 +248,8 @@ widget_list = [
     widget.TextBox(
         text = '|',
         foreground ='ffffff',
-        padding = 2,
-        fontsize = 14
+        padding = 0,
+        fontsize = 12
     ),
     widget.GroupBox(
         highlight_method='block',
@@ -294,12 +266,12 @@ widget_list = [
                 text = '|',
                 foreground ='ffffff',
                 padding = 2,
-                fontsize = 14
+                fontsize = 12,
                 ),
     widget.TextBox(
         text="  ",
         foreground="ffffff",
-        fontsize=14,
+        fontsize=12,
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(browser)},
         decorations=[
             BorderDecoration(
@@ -311,7 +283,7 @@ widget_list = [
     widget.TextBox(
         text=" ",
         foreground="ffffff",
-        fontsize=14,
+        fontsize=12,
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("thunar")},
         decorations=[
             BorderDecoration(
@@ -324,36 +296,37 @@ widget_list = [
         text = '|',
         foreground ='ffffff',
         padding = 2,
-        fontsize = 14
+        fontsize = 12
         ),
     widget.WindowName(
         max_chars=50,
         width=400,
-        padding=10
+        padding=12
     ),
     widget.Spacer(),
     widget.TextBox(
                 text = '|',
                 foreground ='ffffff',
                 padding = 2,
-                fontsize = 14
+                fontsize = 12,
     ),
     widget.Systray(
-        icon_size = 14,
-        padding = 5
+        icon_size = 12,
+        padding = 8,
     ),
     widget.TextBox(
         text = '|',
         foreground ='ffffff',
         padding = 2,
-        fontsize = 14
+        fontsize = 12,
     ),
     widget.Spacer(),
     widget.Spacer(),
     widget.CPU(
-        padding=10,        
+        padding=6,        
         measure_mem='G',
         format='  CPU: {load_percent}%',
+        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("alacritty -e btop")},
         decorations=[
             BorderDecoration(
                 colour = Color12+".8",
@@ -363,17 +336,16 @@ widget_list = [
     ),
     widget.TextBox(
         text = '|',
-        #background=Color2+".4",
         foreground ='ffffff',
         padding = 2,
-        fontsize = 14
+        fontsize = 12,
         ),
     widget.Memory(
-        #background=Color10+".4",
-        padding=10,        
+        padding=6,        
         measure_mem='G',
         format='{MemUsed: .0f}{mm}',
         fmt = '  Mem: {} used',
+        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("alacritty -e btop")},
         decorations=[
             BorderDecoration(
                 colour = Color12+".8",
@@ -381,16 +353,17 @@ widget_list = [
             )
         ]
     ),
-    widget.Spacer(length=8,),
+    widget.Spacer(length=8),
     widget.TextBox(
         text = '|',
         foreground ='ffffff',
         padding = 2,
-        fontsize = 14
+        fontsize = 12,
         ),
     widget.Volume(
-        padding=10, 
+        padding=6, 
         fmt='  Volume: {}',
+        mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("pavucontrol")},
         decorations=[
             BorderDecoration(
                 colour = Color12+".8",
@@ -402,7 +375,7 @@ widget_list = [
         text = '|',
         foreground ='ffffff',
         padding = 2,
-        fontsize = 14
+        fontsize = 12,
         ),
     # widget.DF(
     #     padding=10, 
@@ -429,7 +402,7 @@ widget_list = [
     #             fontsize = 14
     #             ),
     widget.Clock(
-        padding=10,      
+        padding=6,      
         format="  %a, %b %d - %I:%M %p",
         decorations=[
             BorderDecoration(
@@ -442,13 +415,13 @@ widget_list = [
         text = '|',
         foreground ='ffffff',
         padding = 2,
-        fontsize = 14
+        fontsize = 12,
         ),
     widget.TextBox(
         padding=5,    
         text="",
-        fontsize=14,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(home + "/dotfiles/qtile/scripts/powermenu.sh")},
+        fontsize=12,
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("/home/fassih/.config/qtile/scripts/powermenu.sh")},
         decorations=[
             BorderDecoration(
                 colour = Color12+".8",
@@ -479,7 +452,7 @@ screens = [
             widget_list,
             30,
             padding=20,
-            opacity=0.97,
+            opacity=1.0,
             border_width=[0, 0, 0, 0],
             margin=[0,0,0,0],
             background=Color2+".4",
