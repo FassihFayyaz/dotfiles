@@ -1,0 +1,12 @@
+[Default Applications]
+text/html=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/vnd.ms-publisher=org.xfce.mousepad.desktop
+
+[Added Associations]
+text/x-log=org.xfce.mousepad.desktop;
+application/x-shellscript=org.xfce.mousepad.desktop;
+text/plain=codium.desktop;org.xfce.mousepad.desktop;
+text/x-python=org.xfce.mousepad.desktop;
+text/x-csrc=codium.desktop;codium-wayland.desktop;
+application/vnd.ms-publisher=org.xfce.mousepad.desktop;
