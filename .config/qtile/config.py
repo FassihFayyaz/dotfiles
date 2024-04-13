@@ -299,8 +299,8 @@ widget_list = [
         fontsize = 12
         ),
     widget.WindowName(
-        max_chars=50,
-        width=400,
+        max_chars=120,
+        width=800,
         padding=12
     ),
     widget.Spacer(),
@@ -432,7 +432,7 @@ widget_list = [
     widget.Spacer(
         length=8,
         background=Color2+".4",
-        ),
+        ),   
 ]
 
 # Hide Modules if not on laptop
