@@ -296,12 +296,12 @@ widget_list = [
         text = '|',
         foreground ='ffffff',
         padding = 2,
-        fontsize = 12
+        fontsize = 12,
         ),
     widget.WindowName(
         max_chars=120,
         width=800,
-        padding=12
+        padding=12,
     ),
     widget.Spacer(),
     widget.TextBox(
