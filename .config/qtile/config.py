@@ -67,7 +67,7 @@ browser = "firefox"
 screenshot = "flameshot gui" 
 paste_selection_menu = "copyq menu" 
 file_manager = "thunar"
-code_editor = "code"    
+code_editor = "/opt/appimages/cursor.AppImage"    
 
 # --------------------------------------------------------
 # Keybindings
