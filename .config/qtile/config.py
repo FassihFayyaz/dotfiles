@@ -25,10 +25,7 @@ from pathlib import Path
 from libqtile.log_utils import logger
 
 from qtile_extras import widget
-from qtile_extras.widget.decorations import RectDecoration
-from qtile_extras.widget.decorations import PowerLineDecoration
 from qtile_extras.widget.decorations import BorderDecoration
-#from qtile_extras.widget import StatusNotifier
 
 # --------------------------------------------------------
 # Your configuration
