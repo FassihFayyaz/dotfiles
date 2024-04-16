@@ -14,8 +14,15 @@
 PS1='[\u@\h \W]\$ '
 
 # -----------------------------------------------------
-# START QT Environment Variable
+# SETTING UP XDG and Other Environment Variable
 # -----------------------------------------------------
+
+export EDITOR="micro"
+export BROWSER="firefox"
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
 
 export QT_QPA_PLATFORM_THEME="qt5ct"
 
@@ -148,7 +155,6 @@ function extract {
 # FastFetch if on wm
 # -----------------------------------------------------
 
-echo ""
 if [[ $(tty) == *"pts"* ]]; then
     fastfetch
 elif [ -f /bin/qtile ]; then

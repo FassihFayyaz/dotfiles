@@ -2,12 +2,14 @@
 text/html=firefox.desktop
 application/xhtml+xml=firefox.desktop
 application/vnd.ms-publisher=org.xfce.mousepad.desktop
+text/plain=org.xfce.mousepad.desktop
 
 [Added Associations]
 text/x-log=org.xfce.mousepad.desktop;
 application/x-shellscript=org.xfce.mousepad.desktop;
-text/plain=codium.desktop;org.xfce.mousepad.desktop;
+text/plain=code.desktop;codium.desktop;org.xfce.mousepad.desktop;cursor.desktop;
 text/x-python=org.xfce.mousepad.desktop;
 text/x-csrc=codium.desktop;codium-wayland.desktop;
 application/vnd.ms-publisher=org.xfce.mousepad.desktop;
 image/vnd.microsoft.icon=sxiv.desktop;
+application/xml=org.xfce.mousepad.desktop;
