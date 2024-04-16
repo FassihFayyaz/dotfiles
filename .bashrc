@@ -14,16 +14,10 @@
 PS1='[\u@\h \W]\$ '
 
 # -----------------------------------------------------
-# FastFetch
-# -----------------------------------------------------
-
-fastfetch
-
-# -----------------------------------------------------
 # START QT Environment Variable
 # -----------------------------------------------------
 
-QT_QPA_PLATFORM_THEME="qt5ct"
+export QT_QPA_PLATFORM_THEME="qt5ct"
 
 # -----------------------------------------------------
 # Aliases
@@ -146,3 +140,14 @@ function extract {
         esac
     done
 }
+
+# -----------------------------------------------------
+# FastFetch if on wm
+# -----------------------------------------------------
+
+echo ""
+if [[ $(tty) == *"pts"* ]]; then
+    fastfetch
+elif [ -f /bin/qtile ]; then
+    echo "Start Qtile X11 with command Qtile"
+fi
