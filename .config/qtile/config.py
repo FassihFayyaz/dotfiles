@@ -79,6 +79,10 @@ keys = [
     Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
+    Key([mod], "h", lazy.layout.left(), desc="Move focus to left (Vim)"),
+    Key([mod], "l", lazy.layout.right(), desc="Move focus to right (Vim)"),
+    Key([mod], "j", lazy.layout.down(), desc="Move focus down (Vim)"),
+    Key([mod], "k", lazy.layout.up(), desc="Move focus up (Vim)"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window around"),
     
     # Move
@@ -86,15 +90,17 @@ keys = [
     Key([mod, "control"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "control"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "control"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
-
-    # Swap
-    Key([mod, "shift"], "h", lazy.layout.swap_left()),
-    Key([mod, "shift"], "l", lazy.layout.swap_right()),
+    Key([mod, "control"], "h", lazy.layout.shuffle_left(), desc="Move window to the left (Vim)"),
+    Key([mod, "control"], "l", lazy.layout.shuffle_right(), desc="Move window to the right (Vim)"),
+    Key([mod, "control"], "j", lazy.layout.shuffle_down(), desc="Move window down (Vim)"),
+    Key([mod, "control"], "k", lazy.layout.shuffle_up(), desc="Move window up (Vim)"),
 
     Key([mod, "shift"], "s", lazy.spawn(screenshot), desc="Take Screenshot"),
     # Size
-    Key([mod, "shift"], "Left", lazy.layout.shrink(), desc="Grow window to the left"),
+    Key([mod, "shift"], "Left", lazy.layout.shrink(), desc="Shrink window to the left"),
     Key([mod, "shift"], "Right", lazy.layout.grow(), desc="Grow window to the right"),
+    Key([mod, "shift"], "h", lazy.layout.shrink(), desc="Shrink window to the left (Vim)"),
+    Key([mod, "shift"], "l", lazy.layout.grow(), desc="Grow window to the right (Vim)"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     # Floating
@@ -121,6 +127,7 @@ keys = [
 
     # Apps
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "x", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "e", lazy.spawn(file_manager), desc="Launch File Manager"),
     Key([mod], "o", lazy.spawn("obsidian"), desc="Launch Obsidian"),
     Key([mod], "c", lazy.spawn(code_editor), desc="Launch Code Editor"),
@@ -130,6 +137,12 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle"), desc="Mute"),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-"), desc="Lower Volume"),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q set Master 5%+"), desc="Raise Volume"),
+
+    # Media Keys
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause"),
+    Key([], "XF86AudioStop", lazy.spawn("playerctl stop"), desc="Stop"),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Next"),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl prev"), desc="Previous"),
 
     # Misc
     Key([mod, "shift"], "w", lazy.spawn("/home/fassih/.config/qtile/scripts/wal.sh"), desc="Update Wallpaper"),
