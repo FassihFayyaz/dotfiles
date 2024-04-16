@@ -31,14 +31,17 @@ alias c='clear'
 alias ff='fastfetch'
 alias shutdown='systemctl poweroff'
 alias matrix='cmatrix'
+alias mi='micro'
+alias update-mirrors='rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 # -----------------------------------------------------
 # More ls aliases
 # -----------------------------------------------------
 
-alias ll='ls -l'
-alias la='ls -Al'
-alias lt='ls -ltrh'
+alias ls='eza -a --icons'
+alias ll='eza -al --icons'
+alias lt='eza -a --tree --level=1 --icons'
 
 # -----------------------------------------------------
 # GIT
