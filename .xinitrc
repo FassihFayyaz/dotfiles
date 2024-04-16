@@ -1,7 +1,1 @@
-#!/bin/bash
-
-# -------------------------------
-# Start Qtile
-# -------------------------------
-
-exec qtile start
+exec /usr/bin/qtile start

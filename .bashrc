@@ -11,7 +11,6 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-PS1='[\u@\h \W]\$ '
 
 # -----------------------------------------------------
 # SETTING UP XDG and Other Environment Variable
@@ -23,8 +22,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
-export QT_QPA_PLATFORM_THEME="qt5ct"
 
 # -----------------------------------------------------
 # Aliases
@@ -41,6 +40,7 @@ alias matrix='cmatrix'
 alias mi='micro'
 alias update-mirrors='rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias Qtile='startx'
 
 # -----------------------------------------------------
 # More ls aliases
@@ -152,11 +152,16 @@ function extract {
 }
 
 # -----------------------------------------------------
-# FastFetch if on wm
+# Check if terminal is TTY and Xorg is not running
 # -----------------------------------------------------
 
-if [[ $(tty) == *"pts"* ]]; then
+if [ -t 1 ] && ! pgrep -x Xorg > /dev/null; then
+    startx
+else
     fastfetch
-elif [ -f /bin/qtile ]; then
-    echo "Start Qtile X11 with command Qtile"
 fi
+
+# -----------------------------------------------------
+# END
+# -----------------------------------------------------
+

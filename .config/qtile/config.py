@@ -126,6 +126,11 @@ keys = [
     Key([mod], "c", lazy.spawn(code_editor), desc="Launch Code Editor"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Browser"),
 
+    # Sound
+    Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle"), desc="Mute"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-"), desc="Lower Volume"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q set Master 5%+"), desc="Raise Volume"),
+
     # Misc
     Key([mod, "shift"], "w", lazy.spawn("/home/fassih/.config/qtile/scripts/wal.sh"), desc="Update Wallpaper"),
     Key([mod], "v", lazy.spawn(paste_selection_menu), desc="Spawns Clipboard Manager"),
