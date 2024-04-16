@@ -11,6 +11,7 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+PS1='[\u@\h \W]\$ '
 
 # -----------------------------------------------------
 # SETTING UP XDG and Other Environment Variable
@@ -27,7 +28,6 @@ export OLLAMA_MODELS=$XDG_DATA_HOME/ollama/models
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
-export BASH_COMPLETION_USER_FILE="$XDG_CONFIG_HOME"/bash-completion/bash_completion
 
 # -----------------------------------------------------
 # Aliases
@@ -156,10 +156,10 @@ function extract {
 }
 
 # -----------------------------------------------------
-# Check if terminal is TTY and Xorg is not running
+# Check if in a direct TTY (e.g., /dev/tty1) and Xorg is not running
 # -----------------------------------------------------
 
-if [ -t 1 ] && ! pgrep -x Xorg > /dev/null; then
+if [[ "$(tty)" = "/dev/tty1" ]]; then
     startx
 else
     fastfetch
