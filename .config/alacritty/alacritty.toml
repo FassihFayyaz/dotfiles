@@ -1,25 +1,11 @@
 live_config_reload = true
 
-[cursor]
-style = "Block"
-unfocused_hollow = true
-
 [font]
 size = 12.0
 
 [font.normal]
 family = "JetBrains Mono Nerd Font"
 style = "Regular"
-
-[[keyboard.bindings]]
-action = "Paste"
-key = "V"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "Copy"
-key = "C"
-mods = "Control"
 
 [[keyboard.bindings]]
 chars = "\u001Bf"
