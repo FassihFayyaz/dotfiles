@@ -61,6 +61,7 @@ platform = int(os.popen("cat /sys/class/dmi/id/chassis_type").read())
 
 terminal = "alacritty"
 browser = "firefox"
+scrathpad_browser = "thorium-browser"
 screenshot = "flameshot gui" 
 paste_selection_menu = "copyq menu" 
 file_manager = "thunar"
@@ -170,10 +171,10 @@ dgroups_key_binder = simple_key_binder(mod)
 # --------------------------------------------------------
 
 groups.append(ScratchPad("6", [
-    DropDown("chatgpt", "chromium --app=https://chat.openai.com", x=0.1, y=0.1, width=0.80, height=0.8),
+    DropDown("chatgpt", scrathpad_browser+" --app=https://chat.openai.com", x=0.1, y=0.1, width=0.80, height=0.8),
     DropDown("mousepad", "mousepad", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),
     DropDown("terminal", "alacritty", x=0.3, y=0.1, width=0.40, height=0.4, on_focus_lost_hide=False ),
-    DropDown("todoist", "chromium --app=https://todoist.com/", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
+    DropDown("todoist", scrathpad_browser+" --app=https://todoist.com/", width=0.8, height=0.8, x=0.1, y=0.1, opacity=0.9),
 ]))
 
 keys.extend([

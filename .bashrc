@@ -169,3 +169,6 @@ fi
 # END
 # -----------------------------------------------------
 
+
+# Created by `pipx` on 2024-04-17 17:48:03
+export PATH="$PATH:/home/fassih/.local/bin"
