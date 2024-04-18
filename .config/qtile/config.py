@@ -65,7 +65,7 @@ scrathpad_browser = "thorium-browser"
 screenshot = "flameshot gui" 
 paste_selection_menu = "copyq menu" 
 file_manager = "thunar"
-code_editor = "/opt/appimages/cursor.AppImage"    
+code_editor = "codium"    
 
 # --------------------------------------------------------
 # Keybindings
