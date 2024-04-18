@@ -1,3 +1,9 @@
+live_config_reload = true
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
 [font]
 size = 12.0
 
@@ -5,8 +11,49 @@ size = 12.0
 family = "JetBrains Mono Nerd Font"
 style = "Regular"
 
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "F"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "B"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bd"
+key = "D"
+mods = "Alt"
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
 [window]
 opacity = 0.9
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
 
 [window.padding]
 x = 15
