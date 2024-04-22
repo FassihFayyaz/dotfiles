@@ -464,6 +464,7 @@ if (show_bluetooth == False):
 
 screens = [
     Screen(
+        #wallpaper='~/wallpaper/wallhaven1.jpg',
         top=bar.Bar(
             widget_list,
             30,
