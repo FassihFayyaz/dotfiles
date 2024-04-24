@@ -162,6 +162,10 @@ groups = [
     Group("3", layout='monadtall'),
     Group("4", layout='monadtall'),
     Group("5", layout='monadtall'),
+    Group("6", layout='monadtall'),
+    Group("7", layout='monadtall'),
+    Group("8", layout='monadtall'),
+    Group("9", layout='monadtall'),
 ]
 
 dgroups_key_binder = simple_key_binder(mod)
