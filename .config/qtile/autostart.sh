@@ -18,6 +18,9 @@
 # Nitrogen
 #nitrogen --restore &
 
+# Load swww daemon
+swww-daemon &
+
 # Load picom
 picom &
 
