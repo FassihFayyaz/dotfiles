@@ -1,7 +1,6 @@
 #!/bin/bash
 
 wallDIR="$HOME/wallpaper/"
-#scriptsDir="$HOME/.config/hypr/scripts"
 
 # Get Random wallpaper name
 
@@ -22,5 +21,6 @@ swww query || swww-daemon --format xrgb && swww img ${RANDOMPICS} $SWWW_PARAMS
 
 wal -i ${RANDOMPICS}
 
-${scriptsDir}/Refresh.sh 
 qtile cmd-obj -o cmd -f reload_config
+
+pywalfox update
