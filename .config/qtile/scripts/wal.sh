@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wallDIR="$HOME/wallpaper/"
+wallDIR="$HOME/Pictures/wallpaper/"
 
 # Get Random wallpaper name
 
