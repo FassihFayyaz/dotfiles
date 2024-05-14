@@ -40,16 +40,16 @@ yad --width=$dynamic_width --height=$dynamic_height \
 "ESC" "close this app" "" "=" "SUPER KEY (Windows Key)" "(SUPER KEY)" \
 " enter" "Terminal" "(alacritty)" \
 " SHIFT enter" "DropDown Terminal" "(kitty-pyprland)" \
-" D" "App Launcher" "(rofi)" \
-" T" "Open File Manager" "(Thunar)" \
+" CTRL enter" "App Launcher" "(rofi)" \
+" E" "Open File Manager" "(Thunar)" \
 " S" "Google Search" "(rofi)" \
 " Q" "close active window" "(not kill)" \
 " Shift Q " "closes a specified window" "(window)" \
 " Z" "Desktop Zoom" "(pyprland)" \
-" Alt V" "Clipboard Manager" "(cliphist)" \
-" W" "Choose wallpaper" "(Wallpaper Menu)" \
-"CTRL ALT W" "Random wallpaper" "(via swww)" \
-" B" "Hide/UnHide Waybar" "waybar" \
+" V" "Clipboard Manager" "(cliphist)" \
+" CTRL W" "Choose wallpaper" "(Wallpaper Menu)" \
+" SHIFT W" "Random wallpaper" "(via swww)" \
+" SHIFT B" "Hide/UnHide Waybar" "waybar" \
 " CTRL B" "Choose waybar styles" "(waybar styles)" \
 " ALT B" "Choose waybar layout" "(waybar layout)" \
 " ALT R" "Reload Waybar swaync Rofi" "CHECK NOTIFICATION FIRST!!!" \
@@ -68,5 +68,5 @@ yad --width=$dynamic_width --height=$dynamic_height \
 " Shift B" "Toggle Blur" "normal or less blur" \
 " SHIFT G" "Gamemode! All animations OFF or ON" "toggle" \
 " H" "Launch this app" "" \
-" E" "View or EDIT Keybinds, Settings, Monitor" "" \
+" SHIFT Q" "View or EDIT Keybinds, Settings, Monitor" "" \
 "" "" "" \

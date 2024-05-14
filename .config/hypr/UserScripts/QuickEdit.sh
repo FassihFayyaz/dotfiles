@@ -18,37 +18,37 @@ menu(){
 }
 
 main() {
-    choice=$(menu | rofi -i -dmenu -config ~/.config/rofi/config-compact.rasi | cut -d. -f1)
+    choice=$(menu | rofi -i -dmenu -config ~/.config/rofi/config.rasi | cut -d. -f1)
     case $choice in
         1)
-            kitty -e nano "$UserConfigs/ENVariables.conf"
+            kitty -e micro "$UserConfigs/ENVariables.conf"
             ;;
         2)
-            kitty -e nano "$UserConfigs/WindowRules.conf"
+            kitty -e micro "$UserConfigs/WindowRules.conf"
             ;;
         3)
-            kitty -e nano "$UserConfigs/Startup_Apps.conf"
+            kitty -e micro "$UserConfigs/Startup_Apps.conf"
             ;;
         4)
-            kitty -e nano "$UserConfigs/UserKeybinds.conf"
+            kitty -e micro "$UserConfigs/UserKeybinds.conf"
             ;;
         5)
-            kitty -e nano "$UserConfigs/Monitors.conf"
+            kitty -e micro "$UserConfigs/Monitors.conf"
             ;;
         6)
-            kitty -e nano "$UserConfigs/Laptops.conf"
+            kitty -e micro "$UserConfigs/Laptops.conf"
             ;;
         7)
-            kitty -e nano "$UserConfigs/UserSettings.conf"
+            kitty -e micro "$UserConfigs/UserSettings.conf"
             ;;
         8)
-            kitty -e nano "$UserConfigs/WorkspaceRules.conf"
+            kitty -e micro "$UserConfigs/WorkspaceRules.conf"
             ;;
 		9)
-            kitty -e nano "$configs/Settings.conf"
+            kitty -e micro "$configs/Settings.conf"
             ;;
         10)
-            kitty -e nano "$configs/Keybinds.conf"
+            kitty -e micro "$configs/Keybinds.conf"
             ;;
         *)
             ;;
