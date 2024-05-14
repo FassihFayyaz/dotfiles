@@ -1,11 +1,11 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
+# /* ---- 💫 https://github.com/FassihFayyaz 💫 ---- */  ##
 # This script for selecting wallpapers (SUPER W)
 
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
 
 # WALLPAPERS PATH
-wallDIR="$HOME/Pictures/wallpapers"
+wallDIR="$HOME/Pictures/wallpaper/"
 
 # Transition config
 FPS=30
@@ -25,7 +25,7 @@ RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
 RANDOM_PIC_NAME="${#PICS[@]}. random"
 
 # Rofi command
-rofi_command="rofi -i -show -dmenu -config ~/.config/rofi/config-wallpaper.rasi"
+rofi_command="rofi -i -show -dmenu -config ~/.config/rofi/config.rasi"
 
 menu() {
   for i in "${!PICS[@]}"; do

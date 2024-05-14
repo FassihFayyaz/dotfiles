@@ -1,5 +1,5 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
+# /* ---- 💫 https://github.com/FassihFayyaz 💫 ---- */  ##
 # Script for waybar styles
 
 set -euo pipefail
