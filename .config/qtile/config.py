@@ -63,7 +63,7 @@ terminal = "alacritty"
 browser = "firefox"
 scrathpad_browser = "thorium-browser"
 screenshot = "flameshot gui" 
-paste_selection_menu = "copyq menu" 
+paste_selection_menu = "/bin/bash -c '$HOME/dotfiles/.config/qtile/scripts/ClipManager.sh'" 
 file_manager = "thunar"
 code_editor = "codium"    
 
@@ -116,8 +116,8 @@ keys = [
     # Rofi Keys/Shortcuts
 
     Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Run Launcher"),
-    Key([mod, "shift"], "e", lazy.spawn("rofi -show emoji"), desc="Rofi Emoji"),
-    Key([mod, "control"], "c", lazy.spawn("rofi -show calc"), desc="Rofi Calc"),
+    Key([mod, "shift"], "e", lazy.spawn("/bin/bash -c '$HOME/dotfiles/.config/qtile/scripts/RofiEmoji.sh'"), desc="Rofi Emoji"),
+    #Key([mod, "control"], "c", lazy.spawn("rofi -show calc"), desc="Rofi Calc"),
 
     # Fullscreen
     Key([mod], "f", lazy.window.toggle_fullscreen()),
@@ -441,7 +441,7 @@ widget_list = [
         padding=5,    
         text="",
         fontsize=12,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("/home/fassih/.config/qtile/scripts/powermenu.sh")},
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("$HOME/.config/qtile/scripts/powermenu.sh")},
         decorations=[
             BorderDecoration(
                 colour = Color12+".8",
