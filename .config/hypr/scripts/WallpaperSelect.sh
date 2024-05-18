@@ -25,7 +25,7 @@ RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
 RANDOM_PIC_NAME="${#PICS[@]}. random"
 
 # Rofi command
-wofi_command="wofi -i -show -dmenu -config ~/.config/wofi/config.rasi"
+wofi_command="wofi -i --show dmenu -config ~/.config/wofi/config.rasi"
 
 menu() {
   for i in "${!PICS[@]}"; do
