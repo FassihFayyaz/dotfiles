@@ -1,0 +1,38 @@
+[pyprland]
+
+plugins = [
+  "scratchpads",
+  "magnify",
+]
+
+[scratchpads.term]
+animation = "fromTop"
+command = "alacritty"
+class = "Alacritty"
+lazy = true
+size = "75% 60%"
+excludes = "*"
+
+[scratchpads.music]
+animation = "fromTop"
+command = "spotify"
+class = "Spotify Premium"
+lazy = true
+size = "75% 60%"
+excludes = "*"
+
+[scratchpads.chat]
+animation = "fromTop"
+command = "slack"
+class = "Slack"
+lazy = true
+size = "75% 60%"
+excludes = "*"
+
+[scratchpads.obs]
+animation = "fromTop"
+command = "obsidian"
+class = "obsidian"
+lazy = true
+size = "75% 60%"
+excludes = "*"
