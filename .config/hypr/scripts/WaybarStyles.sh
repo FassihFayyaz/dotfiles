@@ -9,7 +9,7 @@ IFS=$'\n\t'
 waybar_styles="$HOME/.config/waybar/style"
 waybar_style="$HOME/.config/waybar/style.css"
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
-wofi_config="$HOME/.config/wofi/config.rasi"
+wofi_config="$HOME/.config/wofi/config"
 
 # Function to display menu options
 menu() {
@@ -50,9 +50,9 @@ main() {
     apply_style "$choice"
 }
 
-# Kill Rofi if already running before execution
-if pgrep -x "rofi" >/dev/null; then
-    pkill rofi
+# Kill Wofi if already running before execution
+if pgrep -x "wofi" >/dev/null; then
+    pkill wofi
     exit 0
 fi
 

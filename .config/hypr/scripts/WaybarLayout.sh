@@ -9,7 +9,7 @@ IFS=$'\n\t'
 waybar_layouts="$HOME/.config/waybar/configs"
 waybar_config="$HOME/.config/waybar/config"
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
-rofi_config="$HOME/.config/rofi/config.rasi"
+wofi_config="$HOME/.config/wofi/config.rasi"
 
 # Function to display menu options
 menu() {
@@ -38,7 +38,7 @@ restart_waybar_if_needed() {
 
 # Main function
 main() {
-    choice=$(menu | wofi -i -dmenu -config "$rofi_config")
+    choice=$(menu | wofi -i -dmenu -config "$wofi_config")
 
     if [[ -z "$choice" ]]; then
         echo "No option selected. Exiting."
@@ -55,9 +55,9 @@ main() {
     esac
 }
 
-# Kill Rofi if already running before execution
-if pgrep -x "rofi" >/dev/null; then
-    pkill rofi
+# Kill Wofi if already running before execution
+if pgrep -x "wofi" >/dev/null; then
+    pkill wofi
     exit 0
 fi
 
