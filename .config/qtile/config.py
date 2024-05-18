@@ -25,7 +25,10 @@ from pathlib import Path
 from libqtile.log_utils import logger
 
 from qtile_extras import widget
+from qtile_extras.widget import StatusNotifier
 from qtile_extras.widget.decorations import BorderDecoration
+
+
 
 # --------------------------------------------------------
 # Your configuration
@@ -63,9 +66,10 @@ terminal = "alacritty"
 browser = "firefox"
 scrathpad_browser = "thorium-browser"
 screenshot = "flameshot gui" 
-paste_selection_menu = "/bin/bash -c '$HOME/dotfiles/.config/qtile/scripts/ClipManager.sh'" 
+wl_paste_selection_menu = "/bin/bash -c '$HOME/dotfiles/.config/qtile/scripts/ClipManager.sh'"
+x11_paste_selection_menu = "copyq menu" 
 file_manager = "thunar"
-code_editor = "codium"    
+code_editor = "codium"
 
 # --------------------------------------------------------
 # Keybindings
@@ -147,7 +151,8 @@ keys = [
 
     # Misc
     Key([mod, "shift"], "w", lazy.spawn("/home/fassih/.config/qtile/scripts/wal.sh"), desc="Update Wallpaper"),
-    Key([mod], "v", lazy.spawn(paste_selection_menu), desc="Spawns Clipboard Manager"),
+    Key([mod], "v", lazy.spawn(wl_paste_selection_menu), desc="Spawns Clipboard Manager"),
+    Key([mod], "v", lazy.spawn(x11_paste_selection_menu), desc="Spawns Clipboard Manager"),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl -q s +20%")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl -q s 20%-"))        
 ]
@@ -334,6 +339,10 @@ widget_list = [
         icon_size = 12,
         padding = 8,
     ),
+    # widget.StatusNotifier(
+    #     icon_size = 12,
+    #     padding = 8,
+    # ),
     widget.TextBox(
         text = '|',
         foreground ='ffffff',
@@ -441,7 +450,7 @@ widget_list = [
         padding=5,    
         text="",
         fontsize=12,
-        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("$HOME/.config/qtile/scripts/powermenu.sh")},
+        mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("/bin/bash -c '$HOME/.config/qtile/scripts/powermenu.sh'")},
         decorations=[
             BorderDecoration(
                 colour = Color12+".8",

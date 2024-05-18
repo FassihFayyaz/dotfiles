@@ -1,0 +1,4 @@
+@define-color accent #{foreground.strip};
+@define-color txt #{color14.strip};
+@define-color bg #{background.strip};
+@define-color bg2 #{color2.strip};

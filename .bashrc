@@ -80,6 +80,9 @@ s() { # do sudo, or sudo the last command if no argument given
     fi
 }
 
+alias lutris="gamescope -w 1920 -h 1080 /bin/lutris & /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & corectrl --toggle-manual-profile Gaming --minimize-systray &"
+
+
 # -----------------------------------------------------
 # Added conda to path
 # -----------------------------------------------------
