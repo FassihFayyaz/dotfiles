@@ -1,0 +1,47 @@
+@import '/home/fassih/.cache/wal/colors-wofi.css';
+
+window {
+  background-color: @bg;
+}
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  color: #fff;
+}
+
+#scroll {
+  padding: 0.5rem;
+}
+
+#input {
+  color: @accent;
+  background-color: @bg;
+  outline: none;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+#inner-box {
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+
+#img {
+  margin: 10px 10px;
+}
+
+#entry {
+  border-radius: 0.5rem;
+}
+
+#entry:selected #text {
+  color: @txt;
+}
+
+#entry:selected {
+  background-color: @bg2;
+  outline: none;
+}
