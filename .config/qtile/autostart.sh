@@ -22,7 +22,7 @@
 swww-daemon &
 
 # Load picom
-#picom &
+picom &
 
 # Start Blue light Filter
 redshift -l 55.7:12.6 -t 6000:3500 -g 0.8 -m randr -v &
@@ -50,7 +50,7 @@ vesktop &
 nm-applet &
 
 # Launch copyq
-#copyq &
+copyq &
 
 # Launch Flameshot
-#flameshot &
+flameshot &

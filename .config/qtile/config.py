@@ -3,7 +3,7 @@
 # | | | || |  | || |   |  _|   | |   / _ \| '_ \| |_| |/ _` |
 # | |_| || |  | || |___| |___  | |__| (_) | | | |  _| | (_| |
 #  \__\_\|_| |___|_____|_____|  \____\___/|_| |_|_| |_|\__, |
-#                                                      |___/ 
+#                                                      |___/  
 
 import os
 import re
@@ -120,8 +120,8 @@ keys = [
     # Rofi Keys/Shortcuts
 
     Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Run Launcher"),
-    Key([mod, "shift"], "e", lazy.spawn("/bin/bash -c '$HOME/dotfiles/.config/qtile/scripts/RofiEmoji.sh'"), desc="Rofi Emoji"),
-    #Key([mod, "control"], "c", lazy.spawn("rofi -show calc"), desc="Rofi Calc"),
+    Key([mod, "shift"], "e", lazy.spawn("rofi -show emoji"), desc="Rofi Emoji"),
+    Key([mod, "control"], "c", lazy.spawn("rofi -show calc"), desc="Rofi Calc"),
 
     # Fullscreen
     Key([mod], "f", lazy.window.toggle_fullscreen()),
@@ -246,7 +246,7 @@ layouts = [
 
 widget_defaults = dict(
     font="JetBrainsMono Nerd Font Bold",
-    fontsize=12,
+    fontsize=14,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
