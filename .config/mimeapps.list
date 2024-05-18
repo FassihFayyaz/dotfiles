@@ -18,7 +18,7 @@ image/x-xpixmap=sxiv.desktop
 
 [Added Associations]
 text/x-log=org.xfce.mousepad.desktop;
-application/x-shellscript=codium-wayland.desktop;org.xfce.mousepad.desktop;
+application/x-shellscript=org.xfce.mousepad.desktop;codium-wayland.desktop;
 text/plain=code.desktop;codium.desktop;org.xfce.mousepad.desktop;cursor.desktop;
 text/x-python=org.xfce.mousepad.desktop;
 text/x-csrc=codium.desktop;codium-wayland.desktop;
@@ -38,3 +38,4 @@ image/x-tga=sxiv.desktop;
 image/x-xpixmap=sxiv.desktop;
 video/x-matroska=vlc.desktop;
 application/schema+json=codium.desktop;
+text/css=org.xfce.mousepad.desktop;
