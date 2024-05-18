@@ -25,7 +25,7 @@ RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
 RANDOM_PIC_NAME="${#PICS[@]}. random"
 
 # Rofi command
-rofi_command="wofi -i -show -dmenu -config ~/.config/wofi/config.rasi"
+wofi_command="wofi -i -show -dmenu -config ~/.config/wofi/config.rasi"
 
 menu() {
   for i in "${!PICS[@]}"; do
@@ -43,7 +43,7 @@ menu() {
 swww query || swww-daemon --format xrgb
 
 main() {
-  choice=$(menu | ${rofi_command})
+  choice=$(menu | ${wofi_command})
 
   # No choice case
   if [[ -z $choice ]]; then
@@ -75,8 +75,8 @@ main() {
 }
 
 # Check if rofi is already running
-if pidof rofi > /dev/null; then
-  pkill rofi
+if pidof wofi > /dev/null; then
+  pkill wofi
   exit 0
 fi
 
