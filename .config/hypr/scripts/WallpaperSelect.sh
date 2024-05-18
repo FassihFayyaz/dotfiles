@@ -83,6 +83,6 @@ fi
 main
 
 sleep 0.5
-${SCRIPTSDIR}/PywalSwww.sh
+wal -i "${wallDIR}/${PICS[$pic_index]}"
 sleep 0.2
 ${SCRIPTSDIR}/Refresh.sh
