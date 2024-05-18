@@ -13,18 +13,18 @@ lazy = true
 size = "75% 60%"
 excludes = "*"
 
-[scratchpads.music]
+[scratchpads.chatgpt]
 animation = "fromTop"
-command = "spotify"
-class = "Spotify Premium"
+command = "thorium-browser --app=https://chat.openai.com"
+class = "ChatGPT"
 lazy = true
 size = "75% 60%"
 excludes = "*"
 
-[scratchpads.chat]
+[scratchpads.todoist]
 animation = "fromTop"
-command = "slack"
-class = "Slack"
+command = "thorium-browser --app=https://todoist.com"
+class = "ChatGPT"
 lazy = true
 size = "75% 60%"
 excludes = "*"
