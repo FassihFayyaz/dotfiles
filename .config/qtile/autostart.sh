@@ -16,10 +16,10 @@
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Nitrogen
-#nitrogen --restore &
+# nitrogen --restore &
 
 # Load swww daemon
-swww-daemon &
+#swww-daemon &
 
 # Load picom
 picom &

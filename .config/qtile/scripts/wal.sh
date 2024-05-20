@@ -17,7 +17,7 @@ SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration
 
 
 # Set wallpaper
-swww query || swww-daemon --format xrgb && swww img ${RANDOMPICS} $SWWW_PARAMS
+# swww query || swww-daemon --format xrgb && swww img ${RANDOMPICS} $SWWW_PARAMS
 
 wal -i ${RANDOMPICS}
 
