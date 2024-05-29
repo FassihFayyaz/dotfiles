@@ -11,6 +11,8 @@ declare -A menu_options=(
   ["Lofi Girl ☕️🎶"]="https://play.streamafrica.net/lofiradio"
   ["Easy Rock 96.3 FM 📻🎶"]="https://radio-stations-philippines.com/easy-rock"
   ["Relaxing Music ☕️🎶"]="https://youtube.com/playlist?list=PLMIbmfP_9vb8BCxRoraJpoo4q1yMFg4CE"
+  ["Fav Playllist ☕️🎶"]="https://www.youtube.com/playlist?list=PLJAg93AkVCYn4rr8nLW48XZ6iV6BqQ2Rx"
+
 )
 
 # Function for displaying notifications
