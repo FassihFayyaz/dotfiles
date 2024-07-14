@@ -16,7 +16,7 @@
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Nitrogen
-# nitrogen --restore &
+nitrogen --restore &
 
 # Load swww daemon
 #swww-daemon &
@@ -38,7 +38,7 @@ dunst &
 sh ~/.config/qtile/scripts/wal.sh
 
 # Start NoiseTorch on Collar Mic
-noisetorch -i alsa_input.pci-0000_07_00.6.analog-stereo &
+# noisetorch -i alsa_input.pci-0000_07_00.6.analog-stereo &
 
 # Start Vesktop
 vesktop &

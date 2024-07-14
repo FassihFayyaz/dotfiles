@@ -23,7 +23,6 @@ from libqtile.widget.image import Image
 from libqtile.dgroups import simple_key_binder
 from pathlib import Path
 from libqtile.log_utils import logger
-
 from qtile_extras import widget
 from qtile_extras.widget import StatusNotifier
 from qtile_extras.widget.decorations import BorderDecoration
@@ -151,7 +150,7 @@ keys = [
 
     # Misc
     Key([mod, "shift"], "w", lazy.spawn("/home/fassih/.config/qtile/scripts/wal.sh"), desc="Update Wallpaper"),
-    Key([mod], "v", lazy.spawn(wl_paste_selection_menu), desc="Spawns Clipboard Manager"),
+    # Key([mod], "v", lazy.spawn(wl_paste_selection_menu), desc="Spawns Clipboard Manager"),
     Key([mod], "v", lazy.spawn(x11_paste_selection_menu), desc="Spawns Clipboard Manager"),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl -q s +20%")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl -q s 20%-"))        
