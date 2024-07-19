@@ -40,6 +40,9 @@ sh ~/.config/qtile/scripts/wal.sh
 # Start NoiseTorch on Collar Mic
 # noisetorch -i alsa_input.pci-0000_07_00.6.analog-stereo &
 
+# Start Udiskie
+udiskie &
+
 # Start Vesktop
 vesktop &
 
