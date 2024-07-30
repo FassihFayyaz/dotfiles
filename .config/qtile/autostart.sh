@@ -57,3 +57,9 @@ copyq &
 
 # Launch Flameshot
 flameshot &
+
+# Launch Qbittorrent
+qbittorrent &
+
+# Launch Muezzin
+muezzin &

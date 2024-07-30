@@ -18,7 +18,7 @@ image/x-xpixmap=sxiv.desktop
 
 [Added Associations]
 text/x-log=org.xfce.mousepad.desktop;
-application/x-shellscript=org.xfce.mousepad.desktop;codium-wayland.desktop;
+application/x-shellscript=codium.desktop;org.xfce.mousepad.desktop;codium-wayland.desktop;
 text/plain=code.desktop;codium.desktop;org.xfce.mousepad.desktop;cursor.desktop;
 text/x-python=org.xfce.mousepad.desktop;
 text/x-csrc=codium.desktop;codium-wayland.desktop;
