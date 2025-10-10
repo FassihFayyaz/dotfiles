@@ -62,13 +62,13 @@ platform = int(os.popen("cat /sys/class/dmi/id/chassis_type").read())
 # --------------------------------------------------------
 
 terminal = "alacritty"
-browser = "firefox"
+browser = "zen-browser"
 scrathpad_browser = "thorium-browser"
 screenshot = "flameshot gui" 
 wl_paste_selection_menu = "/bin/bash -c '$HOME/dotfiles/.config/qtile/scripts/ClipManager.sh'"
 x11_paste_selection_menu = "copyq menu" 
 file_manager = "thunar"
-code_editor = "codium"
+code_editor = "code"
 
 # --------------------------------------------------------
 # Keybindings
