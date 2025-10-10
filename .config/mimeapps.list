@@ -15,6 +15,7 @@ image/x-portable-bitmap=sxiv.desktop
 image/x-portable-graymap=sxiv.desktop
 image/x-tga=sxiv.desktop
 image/x-xpixmap=sxiv.desktop
+x-scheme-handler/discord=vesktop.desktop
 
 [Added Associations]
 text/x-log=org.xfce.mousepad.desktop;
