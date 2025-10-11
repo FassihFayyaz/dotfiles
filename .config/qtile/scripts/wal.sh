@@ -4,7 +4,7 @@ wallDIR="$HOME/Pictures/wallpaper"
 
 # Get Random wallpaper name
 
-PICS=($(find ${wallDIR} -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.gif" \)))
+PICS=($(ls ${wallDIR}/*.{jpg,jpeg,png,gif} 2>/dev/null))
 RANDOMPICS=${PICS[ $RANDOM % ${#PICS[@]} ]}
 
 
