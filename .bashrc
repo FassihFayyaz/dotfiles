@@ -17,7 +17,7 @@ PS1='[\u@\h \W]\$ '
 # SETTING UP XDG and Other Environment Variable
 # -----------------------------------------------------
 
-export EDITOR="micro"
+export EDITOR="nano"
 export BROWSER="firefox"
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -88,12 +88,6 @@ alias lutris="gamescope -w 1920 -h 1080 /bin/lutris & /usr/lib/polkit-gnome/polk
 # -----------------------------------------------------
 
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
-
-# -----------------------------------------------------
-# Zoxide - Replacing cd
-# -----------------------------------------------------
-
-eval "$(zoxide init --cmd cd bash)"
 
 # -----------------------------------------------------
 # START STARSHIP
@@ -175,5 +169,13 @@ else
 fi
 
 # -----------------------------------------------------
-# END
+# New 
 # -----------------------------------------------------
+
+. "$HOME/.local/share/../bin/env"
+
+# -----------------------------------------------------
+# Zoxide - Init & Replacing cd
+# -----------------------------------------------------
+
+eval "$(zoxide init --cmd cd bash)"

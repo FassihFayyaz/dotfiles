@@ -1,0 +1,26 @@
+[Service]
+Environment="ELECTRON_DISABLE_GPU_SANDBOX=true"
+
+
+### Editing /home/fassih/.config/systemd/user/docker-desktop.service.d/override.conf
+### Anything between here and the comment below will become the contents of the drop-in file
+
+
+
+### Edits below this comment will be discarded
+
+
+### /usr/lib/systemd/user/docker-desktop.service
+# [Unit]
+# Description=Docker Desktop
+# Requires=graphical-session.target
+# After=graphical-session.target
+# 
+# [Service]
+# ExecStart=/opt/docker-desktop/bin/com.docker.backend
+# Type=exec
+# TimeoutSec=60
+# 
+# [Install]
+# Alias=docker-desktop.service
+# WantedBy=graphical-session.target

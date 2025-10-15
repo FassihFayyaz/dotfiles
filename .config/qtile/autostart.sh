@@ -29,7 +29,7 @@ redshift -l 55.7:12.6 -t 6000:3500 -g 0.8 -m randr -v &
 
 # Load power manager
 #xfce4-power-manager &
-corectrl --toggle-manual-profile Gaming --minimize-systray &
+#corectrl --toggle-manual-profile Gaming --minimize-systray &
 
 # Load notification service
 dunst &
@@ -41,7 +41,7 @@ sh ~/.config/qtile/scripts/wal.sh
 # noisetorch -i alsa_input.pci-0000_07_00.6.analog-stereo &
 
 # Start Udiskie
-udiskie &
+#udiskie &
 
 # Start Vesktop
 vesktop &
