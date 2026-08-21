@@ -1,0 +1,23 @@
+[Presets]
+lastLoadedInputPreset=My Mic Noise Setup
+
+[StreamInputs]
+inputDevice=alsa_input.usb-DCMT_Technology_USB_Condenser_Microphone_214b206000000178-00.mono-fallback
+mostUsedPresets=My Mic Noise Setup
+plugins=rnnoise#0,loudness#0
+usedPresets=My Mic Noise Setup:1
+visiblePage=pluginsPage
+visiblePlugin=rnnoise#0
+
+[StreamOutputs]
+outputDevice=alsa_output.pci-0000_30_00.6.analog-stereo
+visiblePage=pluginsPage
+
+[Window]
+autostartOnLogin=true
+englishLanguage=true
+height=1024
+noWindowAfterStarting=true
+visiblePage=inputPage
+visiblePresetSheetPage=autoloadingPage
+width=1904
