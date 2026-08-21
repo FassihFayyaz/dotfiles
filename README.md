@@ -1,36 +1,24 @@
-# My Arch Linux Setup Installation Script
+# Dotfiles
 
-Script to take a fresh `archinstall` minimal install (niri profile) up to my working niri + Noctalia setup.
+Personal dotfiles for my Arch Linux + niri + Noctalia setup.
 
-## Baseline: what archinstall already sets up
+## What's included
 
-1. Run `archinstall` with the **niri (waybar)** profile.
-2. During archinstall, select:
-   - NVIDIA drivers
-   - `sddm` as display manager
-   - `pipewire` for audio
-   - `linux-zen` as kernel
-   - All fonts **except** `noto-cjk`
-3. The niri profile installs: `niri`, `alacritty`, `fuzzel`, `mako`, `xorg-xwayland`, `waybar`, `swaybg`, `swayidle`, `swaylock`, `xdg-desktop-portal-gnome`.
-4. **Limine** is chosen as the bootloader (not systemd-boot or GRUB).
+- **niri** — compositor config (split into `cfg/*.kdl`)
+- **alacritty** — terminal config + Noctalia theme
+- **fastfetch** — system info config + Noctalia theme
+- **bash** — `.bashrc`
+- **starship** — prompt config
+- **Thunar** — file manager settings
+- **gtk-3.0 / gtk-4.0** — GTK theming (Noctalia)
+- **qt5ct / qt6ct** — Qt theming (Noctalia)
+- **nwg-look** — GTK appearance settings
+- **mpv** — media player config
+- **xfce4** — Thunar helper settings
 
-After first boot the script takes over.
+## Install
 
-## Current status
-
-- [x] Install Noctalia shell and configure niri to use it (removes `waybar` + `fuzzel`)
-- [x] Install CachyOS repos and CachyOS kernel
-- [x] Install Chaotic-AUR
-- [x] Install essential apps
-- [x] Install utilities and shell tools
-- [x] Install fonts, GTK/QT theming, gaming packages
-- [ ] More steps coming...
-
-## Dotfiles
-
-Dotfiles live in a separate repo: [FassihFayyaz/dotfiles](https://github.com/FassihFayyaz/dotfiles).
-
-After cloning, symlink everything into your home directory with GNU Stow:
+Clone and symlink with GNU Stow:
 
 ```bash
 git clone https://github.com/FassihFayyaz/dotfiles.git ~/dotfiles
@@ -38,11 +26,8 @@ cd ~/dotfiles
 stow -t ~ */
 ```
 
-## Usage
+Each subdirectory mirrors the home directory layout. Stow symlinks them into `~`.
 
-```bash
-git clone https://github.com/fassihfayyaz/archfassih.git
-cd archfassih
-chmod +x install.sh
-./install.sh
-```
+## Related
+
+- [ArchFassih](https://github.com/FassihFayyaz/ArchFassih) — install script for the full system
