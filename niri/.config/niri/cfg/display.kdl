@@ -1,0 +1,17 @@
+// ────────────── Output Configuration ──────────────
+// You can run `niri msg outputs` to get the correct name for your displays.
+
+output "DP-3" {
+    mode "1920x1080@199.997" // Set resolution and refresh rate
+    scale 1.0 // No scaling (use 2 for HiDPI)
+    transform "normal"
+    position x=0 y=0
+    focus-at-startup // Makes this Primary Monitor
+}
+
+output "DP-1" {
+    mode "1920x1080@60" // Set resolution and refresh rate
+    scale 1.0 // No scaling (use 2 for HiDPI)
+    transform "normal"
+    position x=1920 y=0
+}

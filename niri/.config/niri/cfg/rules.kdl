@@ -1,0 +1,16 @@
+    window-rule {
+    geometry-corner-radius 3 // Set every window radius to 20
+    clip-to-geometry true
+    background-effect {
+        xray true
+    }
+}
+
+    layer-rule {
+    match namespace=r"^noctalia-wallpaper*"
+    place-within-backdrop true
+
+    background-effect {
+        blur false
+    }
+}
