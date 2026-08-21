@@ -126,3 +126,5 @@ fi
 # -----------------------------------------------------
 
 eval "$(zoxide init --cmd cd bash)"
+
+. "$HOME/.local/share/../bin/env"

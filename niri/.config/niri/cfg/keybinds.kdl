@@ -105,8 +105,7 @@ binds {
 
     // ─── Layout Controls ───
 
-    Mod+Shift+F                         { fullscreen-window; }
-    MOD+CTRL+F                          { expand-column-to-available-width; }
+    MOD+F                               { expand-column-to-available-width; }
     MOD+C                               { center-column; }
     MOD+CTRL+C                          { center-visible-columns; }
     MOD+MINUS                           { set-column-width "-10%"; }
@@ -116,7 +115,7 @@ binds {
 
     // ─── Modes ───
     MOD+T                               { toggle-window-floating; }
-    MOD+F                               { fullscreen-window; }
+    MOD+CTRL+F                          { fullscreen-window; }
     MOD+W                               { toggle-column-tabbed-display; }
 
     // ─── Screenshots ───
