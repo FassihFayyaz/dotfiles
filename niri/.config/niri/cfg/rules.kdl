@@ -5,6 +5,33 @@
         xray true
     }
 }
+    // Window Rules for Active Window Opacity
+    window-rule {
+    match is-active=true
+    // Exclude browsers from dimming
+    exclude app-id="^(brave-origin|google-chrome|zen-browser|chromium|firefox)$"
+    // Exclude multimedia from dimming
+    exclude app-id="^(mpv|com.stremio.Stremio)$"
+    // Exclude game launchers from dimming
+    exclude app-id="^(lutris|heroic|wine|gamescope|steam_app_.*)$"
+    // Exclude active game binaries from dimming - Raw string using r#"..."# prevents KDL escape errors
+    exclude app-id=r#".*\.exe$"#
+    opacity 0.97
+    }
+
+    // Window Rules for Inactive Window Opacity
+    window-rule {
+    match is-active=false
+    // Exclude browsers from dimming
+    exclude app-id="^(brave-origin|google-chrome|zen-browser|chromium|firefox)$"
+    // Exclude multimedia from dimming
+    exclude app-id="^(mpv|com.stremio.Stremio)$"
+    // Exclude game launchers from dimming
+    exclude app-id="^(lutris|heroic|wine|gamescope|steam_app_.*)$"
+    // Exclude active game binaries from dimming - Raw string using r#"..."# prevents KDL escape errors
+    exclude app-id=r#".*\.exe$"#
+    opacity 0.93
+    }
 
     layer-rule {
     match namespace=r"^noctalia-wallpaper*"
